@@ -1,0 +1,15 @@
+package com.exception.whatIsException;
+
+public class Try_Catch {
+	
+	//used to 
+	
+	public static void main(String[] args) {
+		
+		try {
+			System.out.println(2/0);
+		} catch (ArithmeticException e) {
+			System.out.println("Hello Sir this is Arithmatic Exception");
+		}
+	}
+}

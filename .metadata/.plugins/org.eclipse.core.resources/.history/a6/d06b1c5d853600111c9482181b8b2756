@@ -1,0 +1,14 @@
+package com.exception.whatIsException;
+
+public class ExceptionC1 {
+	
+	public static void main(String[] args) {
+		
+		System.out.println("Line 1 Printed");
+		System.out.println("Line 2 printed");
+		System.out.println(2/0);      // -> Will throw run time exception
+		System.out.println("Line 3 Printed ");
+		System.out.println("Line 4 Printed "); //This will throw error 
+		
+	}
+}

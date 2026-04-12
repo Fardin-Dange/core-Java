@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+C:\Users\fardi\OneDrive\Desktop\Core Java Git Hub Series\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+2202655878.index
+3413725848.index
