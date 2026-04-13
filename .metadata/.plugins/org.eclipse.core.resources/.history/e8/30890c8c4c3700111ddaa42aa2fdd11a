@@ -1,0 +1,5 @@
+package com.exception.whatIsException;
+
+public class Try_catch_finally {
+
+}

@@ -196,5 +196,116 @@ public static void hello() {
 
 ---
 
+# 📘 Java `finally` Block Notes
+
+## 1. What is a `finally` block?
+> A `finally` block **always executes** — whether an exception occurs or not.
+
+---
+
+## 2. Structure
+```java
+try {
+    // risky code
+} catch (ExceptionType e) {
+    // handle exception
+} finally {
+    // cleanup code — always runs!
+}
+```
+
+---
+
+## 3. Real Use of `finally`
+> Used for **resource cleanup**, such as:
+- Closing database connections  
+- Closing files  
+- Closing network connections  
+
+---
+
+## 4. Difference: Direct Code after catch vs finally
+
+| Situation | Code after catch | finally |
+|---|---|---|
+| Exception occurs & catch matches | ✅ Executes | ✅ Executes |
+| No exception occurs | ✅ Executes | ✅ Executes |
+| Exception occurs & catch does NOT match | ❌ Does NOT execute | ✅ Executes |
+
+---
+
+## 5. Why do we use `finally`?
+> If an **unexpected exception occurs** and no catch block handles it:
+- Code after `catch` will **NOT execute**
+- This can cause **memory leaks / resource leaks**
+
+👉 `finally` ensures cleanup happens **no matter what**
+
+---
+
+## 6. Real World Example
+```java
+Connection con = null;
+try {
+    con = DriverManager.getConnection(url);
+    // DB operations
+} catch (SQLException e) {
+    System.out.println("DB Error: " + e.getMessage());
+} finally {
+    if (con != null) {
+        con.close(); // Always executed ✅
+    }
+}
+```
+
+---
+
+## 7. Important Point: `return` vs `finally`
+> Even if `return` is used inside `try` or `catch`, the `finally` block still executes!
+
+```java
+public static int test() {
+    try {
+        return 10;
+    } finally {
+        System.out.println("Finally executed");
+    }
+}
+```
+
+👉 Output:
+```
+Finally executed
+```
+
+---
+
+## 8. Important Point: `System.exit()`
+> If `System.exit()` is called, the JVM shuts down immediately
+
+❌ `finally` will **NOT execute**
+
+```java
+try {
+    System.exit(0);
+} finally {
+    System.out.println("Will NOT execute");
+}
+```
+
+👉 Output:
+```
+(no output)
+```
+
+---
+
+## ⚡ Quick Summary
+- `finally` = **always executes (almost 😄)**
+- Used for **cleanup**
+- Works even with `return`
+- ❌ Does NOT run if `System.exit()` is called
+
+
 
 

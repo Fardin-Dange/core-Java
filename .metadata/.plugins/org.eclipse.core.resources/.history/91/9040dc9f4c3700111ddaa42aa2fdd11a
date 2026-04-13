@@ -1,0 +1,18 @@
+package com.exception.whatIsException;
+
+public class Try_catch_finally {
+	
+	public static void main(String[] args) {
+		
+		try {
+//			System.out.println(2/0); 
+			System.out.println(2/);
+		}
+		catch (Exception e) {
+			System.out.println("Arithmatic Exception Occured");
+		}
+		finally {
+			System.out.println("Finally block Excecuted");
+		}
+	}
+}
