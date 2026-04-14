@@ -1,0 +1,5 @@
+package com.exception.throwkeyword;
+
+public class ThrowCompileTimeException {
+
+}

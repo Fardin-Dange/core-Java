@@ -309,3 +309,148 @@ try {
 
 
 
+
+# 📘 Java `throw` and `throws` Notes
+
+---
+
+## 🔹 1. `throw` Keyword
+
+### ✅ Definition
+> `throw` is used to **explicitly throw an exception**.
+
+---
+
+### 🔹 Syntax
+```java
+throw new ExceptionType("Error message");
+```
+
+---
+
+### 🔹 Key Points
+- Used inside **method body**
+- Throws **single exception**
+- Used for **manual exception generation**
+- Can throw:
+  - Exception
+  - Error
+  - Throwable
+
+---
+
+### 🔹 Example
+```java
+int age = 15;
+
+if (age < 18) {
+    throw new ArithmeticException("Not eligible");
+}
+```
+
+---
+
+### 🔹 Important Rules
+- `throw` ke baad code execute nahi hota ❌
+- Object create karke hi throw karte hain
+
+---
+
+## 🔹 2. `throws` Keyword
+
+### ✅ Definition
+> `throws` is used to **declare exceptions in method signature**.
+
+---
+
+### 🔹 Syntax
+```java
+void methodName() throws ExceptionType {
+    // code
+}
+```
+
+---
+
+### 🔹 Key Points
+- Used in **method signature**
+- Can declare **multiple exceptions**
+- Does NOT handle exception ❌
+- Passes responsibility to **caller**
+
+---
+
+### 🔹 Example
+```java
+import java.io.*;
+
+class Test {
+
+    static void test() throws IOException {
+        throw new IOException("Error");
+    }
+
+    public static void main(String[] args) {
+        try {
+            test();
+        } catch (IOException e) {
+            System.out.println("Handled");
+        }
+    }
+}
+```
+
+---
+
+## 🔥 3. Checked Exception Rule
+
+> Checked exception ke case me:
+- ✔️ try-catch use karo  
+- ✔️ ya `throws` use karo  
+
+❌ warna compile-time error aayega
+
+---
+
+## 🔥 4. throws Flow
+
+```java
+static void test() throws IOException {
+    throw new IOException("Error");
+}
+
+public static void main(String[] args) throws IOException {
+    test();
+}
+```
+
+### 👉 Flow:
+- test() → throws
+- main() → throws
+- JVM → ❌ not handled → program crash
+
+---
+
+## 🔥 5. Difference Table
+
+| Feature | throw | throws |
+|---|---|---|
+| Use | Throw exception | Declare exception |
+| Location | Method body | Method signature |
+| Count | Single | Multiple |
+| Handling | Creates exception | Passes responsibility |
+
+---
+
+## ⚡ 6. Quick Summary
+
+- `throw` = exception fekna 😤  
+- `throws` = exception aage pass karna 😎  
+- Checked exception = handle karo ya declare karo  
+- Agar koi handle nahi karega → JVM program terminate karega  
+
+---
+
+## 💥 Final One Line
+
+> `throw` is used to create and throw an exception, while `throws` is used to declare and propagate exceptions.

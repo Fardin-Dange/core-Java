@@ -1,0 +1,16 @@
+package com.exception.throwkeyword;
+
+import java.io.IOException;
+
+public class ThrowCompileTimeException {
+	
+	public static void main(String[] args) throws IOException {
+		
+		int age = 10;
+		
+		if(age < 18) {
+			throw new IOException("File Error 404");
+		}
+	}
+
+}

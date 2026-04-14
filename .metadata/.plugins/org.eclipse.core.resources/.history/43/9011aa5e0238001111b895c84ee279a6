@@ -1,0 +1,25 @@
+package com.exception.throwkeyword;
+
+public class Throw {
+		
+	public static void main (String args[]) {
+		
+		
+		
+		
+		try {
+			
+			int age = 16;
+			System.out.println("HEllo ");
+//			System.out.println(2/0);   // -> yaha jvm error throw karra uske cond ke hisab se
+			
+			if(age < 18 ) {
+				
+				throw new ArithmeticException("This is impossible") ; //yaha ham exception throw karrahe with our cond 
+			}
+		}
+		catch (ArithmeticException e) {
+			e.getMessage();
+		}
+	}
+}

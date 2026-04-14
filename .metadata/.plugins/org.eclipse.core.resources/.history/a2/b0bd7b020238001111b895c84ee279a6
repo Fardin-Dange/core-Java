@@ -1,0 +1,18 @@
+package com.exception.throwkeyword;
+
+public class Throw {
+		
+	public static void main (String args[]) {
+		
+		
+		
+		
+		try {
+			System.out.println("HEllo ");
+			throw new ArithmeticException("This is impossible") ;
+		}
+		catch (ArithmeticException e) {
+			e.getMessage();
+		}
+	}
+}
